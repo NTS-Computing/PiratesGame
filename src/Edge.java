@@ -7,6 +7,27 @@ public class Edge {
 
     private int weight;
 
+    public Edge (Vertex one, Vertex two){
+        Edge e = new Edge(one, two, 1);
+    }
+
+    public Edge (Vertex one, Vertex two, int i){
+        int result = one.getLabel().compareToIgnoreCase(two.getLabel());
+        if(result == 0){
+            //throw a baby
+        }
+        if(result < 0){
+            this.setVertexOne(one);
+            this.setVertexTwo(two);
+            this.setWeight(i);
+        }
+        else if (result > 0) {
+        this.setVertexOne(two);
+        this.setVertexTwo(one);
+        this.setWeight(i);
+        }
+    }
+
     public void setWeight(int i){
         this.weight = i;
     }
@@ -39,5 +60,9 @@ public class Edge {
             return vertexOne;
         }
         else {return null;}
+    }
+
+    private void guardAgainstBeingTheSame(){
+
     }
 }

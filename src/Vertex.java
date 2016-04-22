@@ -6,6 +6,10 @@ public class Vertex {
 
     private ArrayList<Edge> incidenceNeighbourhood;
 
+    public Vertex (String s){
+        this.setLabel(s);
+    }
+
     public void setLabel(String s){
         this.label = s;
     }
@@ -30,7 +34,9 @@ public class Vertex {
         this.incidenceNeighbourhood.remove(i);
     }
 
-    public void removeNeighboir(Edge e){
-        if (this.incidenceNeighbourhood.contains(e)){ this.incidenceNeighbourhood.remove(e); }
+    public void removeNeighbour(Edge e){
+        if (this.incidenceNeighbourhood.contains(e)){
+            this.incidenceNeighbourhood.remove(e);
+        }
     }
 }
