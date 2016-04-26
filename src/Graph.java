@@ -76,4 +76,13 @@ public class Graph {
         return containsEdge(e);
     }
 
+    public void quardAgainstDuplicate(){
+        if ()
+            throw new DuplicazxteEdgeException();
+    }
+
+    public void guardAgainstLoop(){
+        if()
+            throw new EdgeLoopException();
+    }
 }

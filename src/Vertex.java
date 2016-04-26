@@ -39,4 +39,23 @@ public class Vertex {
             this.incidenceNeighbourhood.remove(e);
         }
     }
+
+    public boolean containsNeighbour(Edge e){
+        if (incidenceNeighbourhood.contains(e)){
+            return true;
+        }
+        return false;
+    }
+
+    public int getNeighbourCount(){
+        return incidenceNeighbourhood.size();
+    }
+
+    public int hashCode(){
+        return this.getLabel().hashCode();
+    }
+
+    public String toString(){
+        return "Vertex: "+this.getLabel();
+    }
 }

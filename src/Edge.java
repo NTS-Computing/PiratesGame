@@ -14,7 +14,7 @@ public class Edge {
     public Edge (Vertex one, Vertex two, int i){
         int result = one.getLabel().compareToIgnoreCase(two.getLabel());
         if(result == 0){
-            //throw a baby
+            throw new EdgeLoopException();
         }
         if(result < 0){
             this.setVertexOne(one);
@@ -62,7 +62,15 @@ public class Edge {
         else {return null;}
     }
 
-    private void guardAgainstBeingTheSame(){
+    public String toString(){
+        return "({"+getVertexOne().getLabel()+","+getVertexOne().getLabel()+"}, "+getWeight()+")";
+    }
 
+    public int hashCode(){
+        return (getVertexOne().getLabel()+getVertexTwo().getLabel()).hashCode();
+    }
+
+    public boolean equals(Edge e){
+        return ()
     }
 }
