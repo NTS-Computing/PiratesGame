@@ -71,6 +71,9 @@ public class Edge {
     }
 
     public boolean equals(Edge e){
-        return ()
+        if(e.hashCode() == this.hashCode()){
+            return true;
+        }
+        return false;
     }
 }

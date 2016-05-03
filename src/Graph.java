@@ -1,6 +1,7 @@
 import javax.xml.bind.ValidationEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 public class Graph {
 
@@ -76,8 +77,13 @@ public class Graph {
         return containsEdge(e);
     }
 
+    public Set vertexKeys(){
+        return Vertices.keySet();
+    }
+
     public void quardAgainstDuplicate(){
         if ()
+
             throw new DuplicazxteEdgeException();
     }
 
