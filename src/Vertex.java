@@ -6,6 +6,10 @@ public class Vertex {
 
     private ArrayList<Edge> incidenceNeighbourhood;
 
+    public Vertex(){
+        this.setLabel(null);
+    }
+
     public Vertex (String s){
         this.setLabel(s);
     }
@@ -57,5 +61,23 @@ public class Vertex {
 
     public String toString(){
         return "Vertex: "+this.getLabel();
+    }
+
+//    public int compareTo(){
+//        return
+//    }
+
+    public boolean equals(Object comparable){
+        if(!(comparable instanceof Vertex)){
+            return false;
+        }
+
+        Vertex v =(Vertex) comparable;
+
+        if(v.getLabel().equalsIgnoreCase(this.getLabel())){
+            return true;
+        }
+
+        return false;
     }
 }

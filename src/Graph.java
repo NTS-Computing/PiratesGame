@@ -1,48 +1,48 @@
-import javax.xml.bind.ValidationEvent;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
 public class Graph {
 
-    //private ArrayList<Vertex> Vertices = new ArrayList<Vertex>();
+    private HashMap<String,Vertex> vertices;
 
-    private HashMap<String,Vertex> Vertices = new HashMap<String, Vertex>();
+    private HashMap<Integer,Edge> edges = new HashMap<Integer, Edge>();
 
-    //private ArrayList<Edge> Edges = new ArrayList<Edge>();
-
-    private HashMap<String,Edge> Edges = new HashMap<String, Edge>();
+    public Graph(){
+        this.vertices = new HashMap<>();
+        this.edges = new HashMap<>();
+    }
 
     public void addVertex (Vertex v){
-        this.Vertices.put(v.getLabel(), v);
+        this.vertices.put(v.getLabel(), v);
     }
 
     public void removeVertex (String s){
-        this.Vertices.remove(s);
+        this.vertices.remove(s);
     }
 
     public void removeVertex(Vertex v){
-        if (this.Vertices.containsValue(v)){
-            this.Vertices.remove(v.getLabel());
+        if (this.vertices.containsValue(v)){
+            this.vertices.remove(v.getLabel());
         }
     }
 
     public void addEdge (Edge e){
-        this.Edges.put(e.getVertexOne().getLabel()+e.getVertexTwo().getLabel(),e);
+        this.guardAgainstDuplicate(e);
+        this.edges.put(e.hashCode(), e);
     }
 
-    public void addEdge (Vertex vertexOne, Vertex vertexTwo,int i){
-        Edge e = new Edge(vertexOne, vertexTwo, i);
-        this.Edges.put(e.getVertexOne().getLabel()+e.getVertexTwo().getLabel(),e);
+    public void addEdge (Vertex vertexOne, Vertex vertexTwo,int weight){
+        Edge e = new Edge(vertexOne, vertexTwo, weight);
+        this.addEdge(e);
     }
 
-    public void addEdge (Vertex one, Vertex two){
+    public void addEdge(Vertex one, Vertex two){
         addEdge(one, two, 1);
     }
 
     public void removeEdge(Edge e){
-        if (this.Edges.containsValue(e)){
-            this.Edges.remove(e.getVertexOne().getLabel()+e.getVertexTwo().getLabel());
+        if (this.edges.containsValue(e)){
+            this.edges.remove(e.getVertexOne().getLabel()+e.getVertexTwo().getLabel());
         }
     }
 
@@ -51,22 +51,22 @@ public class Graph {
         this.removeEdge(e);
     }
 
-    public HashMap<String,Edge> getEdges(){
-        return this.Edges;
+    public HashMap<Integer,Edge> getEdges(){
+        return this.edges;
     }
 
     public HashMap<String,Vertex> getVertices(){
-        return this.Vertices;
+        return this.vertices;
     }
 
     public boolean containsVertex (Vertex v){
-        if (this.Vertices.containsValue(v)){
+        if (this.vertices.containsValue(v)){
             return true;
         }
         return false;
     }
     public boolean containsEdge (Edge e){
-        if (this.Edges.containsValue(e)){
+        if (this.edges.containsValue(e)){
             return true;
         }
         return false;
@@ -78,17 +78,17 @@ public class Graph {
     }
 
     public Set vertexKeys(){
-        return Vertices.keySet();
+        return vertices.keySet();
     }
 
-    public void quardAgainstDuplicate(){
-        if ()
-
-            throw new DuplicazxteEdgeException();
+    public void guardAgainstDuplicate(Edge e){
+        if (this.containsEdge(e)) {
+            throw new DuplicateEdgeException();
+        }
     }
-
-    public void guardAgainstLoop(){
-        if()
-            throw new EdgeLoopException();
-    }
+//
+//    public void guardAgainstLoop(){
+//        if()
+//            throw new EdgeLoopException();
+//    }
 }
