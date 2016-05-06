@@ -8,7 +8,7 @@ public class Edge {
     private int weight;
 
     public Edge (Vertex one, Vertex two){
-        Edge e = new Edge(one, two, 1);
+        this(one, two, 1);
     }
 
     public Edge (Vertex one, Vertex two, int i){
@@ -63,7 +63,7 @@ public class Edge {
     }
 
     public String toString(){
-        return "({"+getVertexOne().getLabel()+","+getVertexOne().getLabel()+"}, "+getWeight()+")";
+        return "({"+getVertexOne().getLabel()+", "+getVertexTwo().getLabel()+"}, "+getWeight()+")";
     }
 
     public int hashCode(){
