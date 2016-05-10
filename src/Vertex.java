@@ -1,10 +1,11 @@
+import java.security.spec.ECGenParameterSpec;
 import java.util.ArrayList;
 
 public class Vertex {
 
     private String label;
 
-    private ArrayList<Edge> incidenceNeighbourhood;
+    private ArrayList<Edge> incidenceNeighbourhood = new ArrayList<Edge>();
 
     public Vertex(){
         this.setLabel(null);
@@ -31,14 +32,26 @@ public class Vertex {
     }
 
     public Edge getNeighbour(int i){
+        this.guardAgainstNoNeighbours();
+        i--;
         return this.incidenceNeighbourhood.get(i);
     }
 
+    public Edge getNeighbour(Edge e){
+        if (incidenceNeighbourhood.contains(e)){
+            return e;
+        }
+        throw new NoEdgeException();
+    }
+
     public void removeNeighbour(int i){
+        this.guardAgainstNoNeighbours();
+        i--;
         this.incidenceNeighbourhood.remove(i);
     }
 
     public void removeNeighbour(Edge e){
+        this.guardAgainstNoNeighbours();
         if (this.incidenceNeighbourhood.contains(e)){
             this.incidenceNeighbourhood.remove(e);
         }
@@ -80,4 +93,11 @@ public class Vertex {
 
         return false;
     }
+
+    public void guardAgainstNoNeighbours(){
+        if (this.incidenceNeighbourhood.size() == 0){
+            throw new NoEdgeException();
+        }
+    }
+
 }
