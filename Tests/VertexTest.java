@@ -125,8 +125,52 @@ public class VertexTest {
 
     @Test
     public void we_can_see_if_a_vertex_has_a_certain_neighbour(){
+        Vertex v1 = new Vertex("Oxford");
+        Vertex v2 = new Vertex("Swindon");
+        Vertex v3 = new Vertex("Witney");
 
+        Edge e1 = new Edge(v1, v2);
+        Edge e2 = new Edge(v1, v3);
+
+        v1.addNeighbour(e1);
+
+        assertTrue(v1.containsNeighbour(e1));
+        assertFalse(v1.containsNeighbour(e2));
     }
+
+    @Test
+    public void we_can_compare_vertices(){
+        Vertex v1 = new Vertex("Oxford");
+        Vertex v2 = new Vertex("Swindon");
+        Vertex v3 = new Vertex("Witney");
+
+        Edge e1 = new Edge(v1, v2);
+        Edge e2 = new Edge(v1, v3);
+
+        assertTrue(v1.equals(v1));
+        assertFalse(v1.equals(v2));
+        assertFalse(v1.equals(e1));
+        assertTrue(v3.equals(v3));
+    }
+
+    @Test(expected = NoEdgeException.class)
+    public void we_cant_remove_more_edges_than_we_have_added(){
+        Vertex v1 = new Vertex("Oxford");
+        Vertex v2 = new Vertex("Swindon");
+        Vertex v3 = new Vertex("Witney");
+
+        Edge e1 = new Edge(v1, v2);
+        Edge e2 = new Edge(v1, v3);
+
+        v1.addNeighbour(e1);
+        v1.addNeighbour(e2);
+
+        v1.removeNeighbour(e1);
+        v1.removeNeighbour(e2);
+        v1.removeNeighbour(e1);
+    }
+
+
 
     //@TODO: finish tests for Vertex
     //@TODO: finish tests for Edge
