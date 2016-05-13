@@ -170,7 +170,11 @@ public class VertexTest {
         v1.removeNeighbour(e1);
     }
 
-
+    @Test
+    public void we_can_use_and_produce_a_correct_hash(){
+        Vertex v1 = new Vertex("Oxford");
+        assertEquals(-1919292860,v1.hashCode());
+    }
 
     //@TODO: finish tests for Vertex
     //@TODO: finish tests for Edge

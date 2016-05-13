@@ -24,7 +24,6 @@ public class GraphTest {
 
     @Test(expected = DuplicateEdgeException.class)
     public void we_cant_add_duplicate_edge(){
-
         Vertex vertex1 = new Vertex("London");
         Vertex vertex2 = new Vertex("Machester");
 
@@ -34,6 +33,23 @@ public class GraphTest {
 
         g.addEdge(e);
         g.addEdge(e);
+    }
+
+    @Test
+    public void we_can_rebuild_the_3rd_reich(){
+        Vertex v1 = new Vertex("Oxford");
+        Vertex v2 = new Vertex("Witney");
+        Vertex v3 = new Vertex("Swindon");
+        Vertex v4 = new Vertex("Carterton");
+
+        Graph g = new Graph();
+
+        g.addVertex(v1);
+        g.addVertex(v2);
+        g.addVertex(v3);
+        g.addVertex(v4);
+
+        g.removeVertex("Swindon");
     }
 
 }
