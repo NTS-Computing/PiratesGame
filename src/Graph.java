@@ -42,7 +42,7 @@ public class Graph {
 
     public void removeEdge(Edge e){
         if (this.edges.containsValue(e)){
-            this.edges.remove(e.getVertexOne().getLabel()+e.getVertexTwo().getLabel());
+            this.edges.remove(e.hashCode());
         }
     }
 

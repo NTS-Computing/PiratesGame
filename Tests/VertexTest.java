@@ -176,7 +176,5 @@ public class VertexTest {
         assertEquals(-1919292860,v1.hashCode());
     }
 
-    //@TODO: finish tests for Vertex
-    //@TODO: finish tests for Edge
 }
 
