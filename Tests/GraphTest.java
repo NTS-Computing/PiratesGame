@@ -12,7 +12,7 @@ public class GraphTest {
         assertTrue(g.getEdges().size() == 0);
     }
 
-    
+
     @Test
     public void it_will_populate_a_graph_with_a_list_of_vertices(){
         Graph g = new Graph();
@@ -38,6 +38,7 @@ public class GraphTest {
         g.addEdge(e);
     }
 
+    
     @Test
     public void we_can_remove_vertices_with_both_methods(){
         Vertex v1 = new Vertex("Oxford");
