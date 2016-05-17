@@ -1,5 +1,4 @@
-import java.util.HashMap;
-import java.util.Set;
+import java.util.*;
 
 public class Graph {
 
@@ -41,7 +40,7 @@ public class Graph {
     }
 
     public void removeEdge(Edge e){
-        if (this.edges.containsValue(e)){
+        if (this.containsEdge(e)){
             this.edges.remove(e.hashCode());
         }
     }
@@ -65,9 +64,14 @@ public class Graph {
         }
         return false;
     }
-    public boolean containsEdge (Edge e){
-        if (this.edges.containsValue(e)){
-            return true;
+    public boolean containsEdge(Edge e){
+        Collection<Edge> values = this.edges.values();
+        Iterator<Edge> it = values.iterator();
+        while(it.hasNext()) {
+            Edge next = it.next();
+            if (next.equals(e)) {
+                return true;
+            }
         }
         return false;
     }
@@ -85,6 +89,16 @@ public class Graph {
         if (this.containsEdge(e)) {
             throw new DuplicateEdgeException();
         }
+    }
+
+    public boolean equals(Object c){
+        if(!(c instanceof Edge)){
+            return false;
+        }
+        if(c.hashCode() == this.hashCode()){
+            return true;
+        }
+        return false;
     }
 //
 //    public void guardAgainstLoop(){
