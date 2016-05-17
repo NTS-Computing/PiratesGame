@@ -12,6 +12,7 @@ public class GraphTest {
         assertTrue(g.getEdges().size() == 0);
     }
 
+    
     @Test
     public void it_will_populate_a_graph_with_a_list_of_vertices(){
         Graph g = new Graph();
