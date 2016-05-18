@@ -106,7 +106,7 @@ public class VertexTest {
         v1.addNeighbour(e2);
 
         assertEquals(e1, v1.getNeighbour(e1));
-        assertEquals(e2,v1.getNeighbour(e2));
+        assertEquals(e2, v1.getNeighbour(e2));
     }
 
     @Test(expected = NoEdgeException.class)
@@ -173,8 +173,10 @@ public class VertexTest {
     @Test
     public void we_can_use_and_produce_a_correct_hash(){
         Vertex v1 = new Vertex("Oxford");
-        assertEquals(-1919292860,v1.hashCode());
+        assertEquals(-1919292860, v1.hashCode());
     }
+
+
 
 }
 

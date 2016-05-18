@@ -130,10 +130,58 @@ public class GraphTest {
 
         Set<Vertex> vSet = g.vertexKeys();
 
-        assertEquals(2,vSet.size());
-        assertEquals(true,vSet.contains());
+        assertEquals(2, vSet.size());
+        assertEquals(true, vSet.contains(v1.hashCode()));
         assertTrue(vSet.contains(v2.hashCode()));
     }
 
+    @Test
+    public void we_can_see_if_a_graph_contains_an_edge(){
+        Vertex v1 = new Vertex("Oxford");
+        Vertex v2 = new Vertex("Swindon");
+        Vertex v3 = new Vertex("Witney");
+
+        Edge e1 = new Edge(v1, v2);
+        Edge e2 = new Edge(v1, v3);
+        Edge e3 = new Edge(v2, v3);
+
+        Graph g = new Graph();
+
+        g.addEdge(e1);
+        g.addEdge(e2);
+
+        assertTrue(g.containsEdge(e1));
+        assertTrue(g.containsEdge(v1, v2));
+        assertFalse(g.containsEdge(e3));
+    }
+
+    @Test
+    public void we_can_test_to_see_if_two_object_are_equal(){
+        Vertex v1 = new Vertex("Oxford");
+        Vertex v2 = new Vertex("Swindon");
+        Vertex v3 = new Vertex("Witney");
+
+        Edge e1 = new Edge(v1, v2);
+        Edge e2 = new Edge(v1, v3);
+        Edge e3 = new Edge(v2, v3);
+        Edge e4 = new Edge(v1, v2);
+
+        Graph g = new Graph();
+
+        g.addEdge(e1);
+        g.addEdge(e2);
+
+        boolean test1 = e1.equals(e4);
+        boolean test2 = e1.equals(e2);
+        boolean test3 = e1.equals(e1);
+        boolean test4 = e2.equals(e3);
+        boolean test5 = e1.equals(v1);
+
+        assertTrue(test1);
+        assertFalse(test2);
+        assertTrue(test3);
+        assertFalse(test4);
+        assertFalse(test5);
+    }
 }
 //http://www.dreamincode.net/forums/topic/377473-graph-data-structure-tutorial/
