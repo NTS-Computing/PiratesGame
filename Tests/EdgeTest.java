@@ -62,31 +62,19 @@ public class EdgeTest {
         assertNull(nullOpposite);
     }
 
-//    @Test
-//    public void it_will_correctly_compare_the_weights_of_edges(){
-//        Vertex v1 = new Vertex("London");
-//        Vertex v2 = new Vertex("Manchester");
-//        Vertex v3 = new Vertex("Liverpool");
-//
-//        Edge e1 = new Edge(v1, v2, 5);
-//        Edge e2 = new Edge(v1, v3, 3);
-//
-//        assertTrue((e1.compareTo(e2) > 0));
-//        assertTrue((e2.compareTo(e1) < 0));
-//    }
+    @Test
+    public void we_will_add_vertices_to_an_edge_the_right_way_round(){
+        Vertex v1 = new Vertex("London");
+        Vertex v2 = new Vertex("Manchester");
 
-//    @Test
-//    public void it_will_correctly_compare_the_weights_of_equal_edges(){
-//        Vertex v1 = new Vertex("London");
-//        Vertex v2 = new Vertex("Manchester");
-//        Vertex v3 = new Vertex("Liverpool");
-//
-//        Edge e1 = new Edge(v1, v2);
-//        Edge e2 = new Edge(v1, v3);
-//
-//        assertTrue((e1.compareTo(e2) == 0));
-//        assertTrue((e2.compareTo(e1) == 0));
-//    }
+        Edge e1 = new Edge(v1, v2);
+        Edge e2 = new Edge(v2, v1);
+
+        assertEquals("London",e1.getVertexOne().getLabel());
+        assertEquals("Manchester",e1.getVertexTwo().getLabel());
+        assertEquals("London",e2.getVertexOne().getLabel());
+        assertEquals("Manchester",e2.getVertexTwo().getLabel());
+    }
 
     @Test
     public void it_will_confirm_equivalence_of_edges(){
@@ -110,23 +98,39 @@ public class EdgeTest {
         assertEquals("({Oxford, Witney}, 1)",e.toString());
     }
 
-    @Test
-    public void we_can_compare_two_edges_that_are_differvnt(){
-        Vertex v1 = new Vertex("Oxford");
-        Vertex v2 = new Vertex("Witney");
-        Vertex v3 = new Vertex("Swindon");
-        Vertex v4 = new Vertex("Carterton");
-
-        Edge e1 = new Edge(v1,v2);
-        Edge e2 = new Edge(v3,v4);
-
-        assertFalse(e1.equals(e2));
-    }
-
     @Test(expected = EdgeLoopException.class)
     public void we_cant_make_an_edge_that_has_two_vertexes_the_same(){
         Vertex v = new Vertex("Oxford");
 
         Edge e = new Edge(v,v);
+    }
+
+    @Test
+    public void we_can_test_to_see_if_two_edges_are_equal(){
+        Vertex v1 = new Vertex("Oxford");
+        Vertex v2 = new Vertex("Swindon");
+        Vertex v3 = new Vertex("Witney");
+
+        Edge e1 = new Edge(v1, v2);
+        Edge e2 = new Edge(v1, v3);
+        Edge e3 = new Edge(v2, v3);
+        Edge e4 = new Edge(v1, v2);
+
+        Graph g = new Graph();
+
+        g.addEdge(e1);
+        g.addEdge(e2);
+
+        boolean test1 = e1.equals(e4);
+        boolean test2 = e1.equals(e2);
+        boolean test3 = e1.equals(e1);
+        boolean test4 = e2.equals(e3);
+        boolean test5 = e1.equals(v1);
+
+        assertTrue(test1);
+        assertFalse(test2);
+        assertTrue(test3);
+        assertFalse(test4);
+        assertFalse(test5);
     }
 }

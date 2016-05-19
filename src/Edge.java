@@ -77,5 +77,15 @@ public class Edge {
         return false;
     }
 
+    public boolean equals(Object c){
+        if(!(c instanceof Edge)){
+            return false;
+        }
+        Edge e = (Edge) c;
+        if(e.hashCode() == this.hashCode()){
+            return true;
+        }
+        return false;
+    }
 
 }

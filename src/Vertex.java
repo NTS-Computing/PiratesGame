@@ -99,5 +99,4 @@ public class Vertex {
             throw new NoEdgeException();
         }
     }
-
 }

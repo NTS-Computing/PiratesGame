@@ -59,6 +59,22 @@ public class GraphTest {
         assertEquals(2, g.getVertices().size());
     }
 
+    @Test(expected = NoVertexException.class)
+    public void we_cant_remove_more_vertices_than_we_added(){
+        Vertex v1 = new Vertex("Oxford");
+        Vertex v2 = new Vertex("Swindon");
+        Vertex v3 = new Vertex("Witney");
+
+        Graph g = new Graph();
+
+        g.addVertex(v1);
+        g.addVertex(v2);
+
+        g.removeVertex(v1);
+        g.removeVertex(v2);
+        g.removeVertex(v3);
+    }
+
     @Test
     public void we_can_add_edges_with_both_methods(){
         Vertex v1 = new Vertex("Oxford");
@@ -73,9 +89,6 @@ public class GraphTest {
 
         assertEquals(2, g.getEdges().size());
     }
-
-    //@TODO: Figure out why this test doesn't pass
-    //@TODO: Test weather we can remove more edges than we add
 
     @Test
     public void we_can_remove_edges_we_both_methods(){
@@ -97,6 +110,26 @@ public class GraphTest {
         g.removeEdge(v1, v3);
 
         assertEquals(2,g.getEdges().size());
+    }
+
+    @Test(expected = NoEdgeException.class)
+    public void we_cant_remove_more_edges_than_we_added(){
+        Vertex v1 = new Vertex("Oxford");
+        Vertex v2 = new Vertex("Swindon");
+        Vertex v3 = new Vertex("Witney");
+
+        Edge e1 = new Edge(v1, v2);
+        Edge e2 = new Edge(v1, v3);
+        Edge e3 = new Edge(v2, v3);
+
+        Graph g = new Graph();
+
+        g.addEdge(e1);
+        g.addEdge(e2);
+
+        g.removeEdge(e1);
+        g.removeEdge(e2);
+        g.removeEdge(e3);
     }
 
     @Test
@@ -131,8 +164,8 @@ public class GraphTest {
         Set<Vertex> vSet = g.vertexKeys();
 
         assertEquals(2, vSet.size());
-        assertEquals(true, vSet.contains(v1.hashCode()));
-        assertTrue(vSet.contains(v2.hashCode()));
+        assertEquals(true, vSet.contains(v1.getLabel()));
+        assertTrue(vSet.contains(v2.getLabel()));
     }
 
     @Test
@@ -155,33 +188,5 @@ public class GraphTest {
         assertFalse(g.containsEdge(e3));
     }
 
-    @Test
-    public void we_can_test_to_see_if_two_object_are_equal(){
-        Vertex v1 = new Vertex("Oxford");
-        Vertex v2 = new Vertex("Swindon");
-        Vertex v3 = new Vertex("Witney");
-
-        Edge e1 = new Edge(v1, v2);
-        Edge e2 = new Edge(v1, v3);
-        Edge e3 = new Edge(v2, v3);
-        Edge e4 = new Edge(v1, v2);
-
-        Graph g = new Graph();
-
-        g.addEdge(e1);
-        g.addEdge(e2);
-
-        boolean test1 = e1.equals(e4);
-        boolean test2 = e1.equals(e2);
-        boolean test3 = e1.equals(e1);
-        boolean test4 = e2.equals(e3);
-        boolean test5 = e1.equals(v1);
-
-        assertTrue(test1);
-        assertFalse(test2);
-        assertTrue(test3);
-        assertFalse(test4);
-        assertFalse(test5);
-    }
 }
 //http://www.dreamincode.net/forums/topic/377473-graph-data-structure-tutorial/

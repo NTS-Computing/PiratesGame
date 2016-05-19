@@ -16,10 +16,12 @@ public class Graph {
     }
 
     public void removeVertex (String s){
+        guardAgainstNoVertices();
         this.vertices.remove(s);
     }
 
     public void removeVertex(Vertex v){
+        guardAgainstNoVertices();
         if (this.vertices.containsValue(v)){
             this.vertices.remove(v.getLabel());
         }
@@ -40,6 +42,7 @@ public class Graph {
     }
 
     public void removeEdge(Edge e){
+        guardAgainstNoEdges();
         if (this.containsEdge(e)){
             this.edges.remove(e.hashCode());
         }
@@ -91,15 +94,18 @@ public class Graph {
         }
     }
 
-    public boolean equals(Object c){
-        if(!(c instanceof Edge)){
-            return false;
+    public void guardAgainstNoEdges(){
+        if (this.edges.size() == 0){
+            throw new NoEdgeException();
         }
-        if(c.hashCode() == this.hashCode()){
-            return true;
-        }
-        return false;
     }
+
+    public void guardAgainstNoVertices(){
+        if (this.vertices.size() == 0){
+            throw  new NoVertexException();
+        }
+    }
+
 //
 //    public void guardAgainstLoop(){
 //        if()
