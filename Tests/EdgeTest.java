@@ -90,12 +90,12 @@ public class EdgeTest {
 
     @Test
     public void we_can_get_a_standardized_lable_output(){
-        Vertex v1 = new Vertex("Oxford");
+        Vertex v1 = new Vertex("Cambridge");
         Vertex v2 = new Vertex("Witney");
 
         Edge e = new Edge(v1,v2);
 
-        assertEquals("({Oxford, Witney}, 1)",e.toString());
+        assertEquals("({Cambridge, Witney}, 1)",e.toString());
     }
 
     @Test(expected = EdgeLoopException.class)
