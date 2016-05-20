@@ -100,7 +100,7 @@ public class EdgeTest {
 
     @Test(expected = EdgeLoopException.class)
     public void we_cant_make_an_edge_that_has_two_vertexes_the_same(){
-        Vertex v = new Vertex("Oxford");
+        Vertex v = new Vertex("WHATS THE GRORGE COOKING?");
 
         Edge e = new Edge(v,v);
     }
