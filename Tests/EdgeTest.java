@@ -108,7 +108,7 @@ public class EdgeTest {
     @Test
     public void we_can_test_to_see_if_two_edges_are_equal(){
         Vertex v1 = new Vertex("Oxford");
-        Vertex v2 = new Vertex("Swindon");
+        Vertex v2 = new Vertex("Gold Chain");
         Vertex v3 = new Vertex("Witney");
 
         Edge e1 = new Edge(v1, v2);
