@@ -1,3 +1,7 @@
+package com.piratesgame.graph;
+
+import com.piratesgame.helpers.Cli;
+
 import java.util.*;
 
 public class Graph {
@@ -46,6 +50,8 @@ public class Graph {
         if (this.containsEdge(e)){
             this.edges.remove(e.hashCode());
         }
+
+        String username = Cli.getUserInput();
     }
 
     public void removeEdge(Vertex one, Vertex two){
@@ -109,6 +115,6 @@ public class Graph {
 //
 //    public void guardAgainstLoop(){
 //        if()
-//            throw new EdgeLoopException();
+//            throw new com.piratesgame.graph.EdgeLoopException();
 //    }
 }

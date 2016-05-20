@@ -1,3 +1,4 @@
+package com.piratesgame.graph;
 
 public class Edge {
 

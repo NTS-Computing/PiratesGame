@@ -1,3 +1,7 @@
+import com.piratesgame.graph.Edge;
+import com.piratesgame.graph.EdgeLoopException;
+import com.piratesgame.graph.Graph;
+import com.piratesgame.graph.Vertex;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -90,12 +94,12 @@ public class EdgeTest {
 
     @Test
     public void we_can_get_a_standardized_lable_output(){
-        Vertex v1 = new Vertex("Cambridge");
+        Vertex v1 = new Vertex("Swansea");
         Vertex v2 = new Vertex("Witney");
 
         Edge e = new Edge(v1,v2);
 
-        assertEquals("({Cambridge, Witney}, 1)",e.toString());
+        assertEquals("({Swansea, Witney}, 1)",e.toString());
     }
 
     @Test(expected = EdgeLoopException.class)

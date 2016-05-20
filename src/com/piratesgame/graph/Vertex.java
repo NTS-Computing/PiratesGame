@@ -1,4 +1,5 @@
-import java.security.spec.ECGenParameterSpec;
+package com.piratesgame.graph;
+
 import java.util.ArrayList;
 
 public class Vertex {
@@ -73,7 +74,7 @@ public class Vertex {
     }
 
     public String toString(){
-        return "Vertex: "+this.getLabel();
+        return "com.piratesgame.graph.Vertex: "+this.getLabel();
     }
 
 //    public int compareTo(){

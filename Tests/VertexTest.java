@@ -1,3 +1,6 @@
+import com.piratesgame.graph.Edge;
+import com.piratesgame.graph.NoEdgeException;
+import com.piratesgame.graph.Vertex;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -40,7 +43,7 @@ public class VertexTest {
     public void it_outputs_the_correct_toString_representation() {
         Vertex v1 = new Vertex("London");
 
-        assertEquals("Vertex: London", v1.toString());
+        assertEquals("com.piratesgame.graph.Vertex: London", v1.toString());
     }
 
     @Test
