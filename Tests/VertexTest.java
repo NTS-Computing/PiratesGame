@@ -1,6 +1,3 @@
-import com.piratesgame.graph.Edge;
-import com.piratesgame.graph.NoEdgeException;
-import com.piratesgame.graph.Vertex;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -43,7 +40,7 @@ public class VertexTest {
     public void it_outputs_the_correct_toString_representation() {
         Vertex v1 = new Vertex("London");
 
-        assertEquals("com.piratesgame.graph.Vertex: London", v1.toString());
+        assertEquals("Vertex: London", v1.toString());
     }
 
     @Test
@@ -179,7 +176,34 @@ public class VertexTest {
         assertEquals(-1919292860, v1.hashCode());
     }
 
+    @Test
+    public void create_a_port_vertex_using_a_vertex(){
+        Vertex v = new Vertex("Priest Cove");
+        VertexPort vP = new VertexPort(v);
 
+        assertEquals("Priest Cove", vP.getLabel());
+    }
 
+    @Test
+    public void create_a_port_vertex_with_string(){
+        VertexPort vP = new VertexPort("Priest Cove");
+
+        assertEquals("Priest Cove", vP.getLabel());
+    }
+
+    @Test
+    public void create_a_sea_vertex_using_a_vertex(){
+        Vertex v = new Vertex("Atlantic sea");
+        VertexSea vS = new VertexSea(v);
+
+        assertEquals("Atlantic sea", vS.getLabel());
+    }
+
+    @Test
+    public void create_a_sea_vertex_with_string(){
+        VertexSea vS = new VertexSea("Atlantic sea");
+
+        assertEquals("Atlantic sea",vS.getLabel());
+    }
 }
 
