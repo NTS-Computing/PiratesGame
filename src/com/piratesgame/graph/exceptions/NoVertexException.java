@@ -1,4 +1,4 @@
-package com.piratesgame.graph;
+package com.piratesgame.graph.exceptions;
 
 public class NoVertexException extends RuntimeException{
     public NoVertexException(){

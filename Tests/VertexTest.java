@@ -1,3 +1,8 @@
+import com.piratesgame.graph.*;
+import com.piratesgame.graph.exceptions.NoEdgeException;
+import com.piratesgame.graph.vertices.PortVertex;
+import com.piratesgame.graph.vertices.SeaVertex;
+import com.piratesgame.graph.vertices.Vertex;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -177,33 +182,41 @@ public class VertexTest {
     }
 
     @Test
-    public void create_a_port_vertex_using_a_vertex(){
-        Vertex v = new Vertex("Priest Cove");
-        VertexPort vP = new VertexPort(v);
-
-        assertEquals("Priest Cove", vP.getLabel());
-    }
-
-    @Test
     public void create_a_port_vertex_with_string(){
-        VertexPort vP = new VertexPort("Priest Cove");
+        PortVertex vP = new PortVertex("Priest Cove");
 
         assertEquals("Priest Cove", vP.getLabel());
-    }
-
-    @Test
-    public void create_a_sea_vertex_using_a_vertex(){
-        Vertex v = new Vertex("Atlantic sea");
-        VertexSea vS = new VertexSea(v);
-
-        assertEquals("Atlantic sea", vS.getLabel());
     }
 
     @Test
     public void create_a_sea_vertex_with_string(){
-        VertexSea vS = new VertexSea("Atlantic sea");
+        SeaVertex vS = new SeaVertex("Atlantic sea");
 
         assertEquals("Atlantic sea",vS.getLabel());
+    }
+
+    @Test
+    public void we_can_create_a_graph_of_sea_and_port_vertices_with_edges(){
+        SeaVertex seaAB = new SeaVertex("sea AB");
+        SeaVertex seaAC = new SeaVertex("sea AC");
+        SeaVertex seaBC = new SeaVertex("sea BC");
+        PortVertex A = new PortVertex("Port A");
+        PortVertex B = new PortVertex("Port B");
+        PortVertex C = new PortVertex("Port C");
+
+        Edge portASeaAB = new Edge(A,seaAB);
+        Edge portBSeaAB = new Edge(B,seaAB);
+        Edge portASeaAC = new Edge(A,seaAC);
+        Edge portCSeaAC = new Edge(C,seaAC);
+        Edge portBSeaBC = new Edge(C,seaBC);
+        Edge portCSeaBC = new Edge(C,seaBC);
+        Edge SeaABSeaBC = new Edge(seaBC,seaAB);
+        Edge SeaABSeaAC = new Edge(seaAC,seaAB);
+        Edge SeaACSeaBC = new Edge(seaBC,seaAC);
+
+        Graph g = new Graph();
+
+        //add all vertices and edges to graph
     }
 }
 
