@@ -1,4 +1,7 @@
-package com.piratesgame.graph;
+package com.piratesgame.graph.vertices;
+
+import com.piratesgame.graph.Edge;
+import com.piratesgame.graph.exceptions.NoEdgeException;
 
 import java.util.ArrayList;
 
@@ -74,7 +77,7 @@ public class Vertex {
     }
 
     public String toString(){
-        return "com.piratesgame.graph.Vertex: "+this.getLabel();
+        return "com.piratesgame.graph.vertices.Vertex: "+this.getLabel();
     }
 
 //    public int compareTo(){

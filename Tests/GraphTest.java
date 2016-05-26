@@ -1,4 +1,8 @@
 import com.piratesgame.graph.*;
+import com.piratesgame.graph.exceptions.DuplicateEdgeException;
+import com.piratesgame.graph.exceptions.NoEdgeException;
+import com.piratesgame.graph.exceptions.NoVertexException;
+import com.piratesgame.graph.vertices.Vertex;
 import org.junit.Test;
 
 import java.util.HashMap;

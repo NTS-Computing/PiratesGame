@@ -1,5 +1,8 @@
 package com.piratesgame.graph;
 
+import com.piratesgame.graph.exceptions.EdgeLoopException;
+import com.piratesgame.graph.vertices.Vertex;
+
 public class Edge {
 
     private Vertex vertexOne;

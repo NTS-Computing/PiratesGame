@@ -1,5 +1,9 @@
 package com.piratesgame.graph;
 
+import com.piratesgame.graph.exceptions.DuplicateEdgeException;
+import com.piratesgame.graph.exceptions.NoEdgeException;
+import com.piratesgame.graph.exceptions.NoVertexException;
+import com.piratesgame.graph.vertices.Vertex;
 import com.piratesgame.helpers.Cli;
 
 import java.util.*;
@@ -113,6 +117,6 @@ public class Graph {
 //
 //    public void guardAgainstLoop(){
 //        if()
-//            throw new com.piratesgame.graph.EdgeLoopException();
+//            throw new com.piratesgame.graph.exceptions.EdgeLoopException();
 //    }
 }

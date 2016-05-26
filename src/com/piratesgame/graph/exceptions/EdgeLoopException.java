@@ -1,4 +1,4 @@
-package com.piratesgame.graph;
+package com.piratesgame.graph.exceptions;
 
 public class EdgeLoopException extends RuntimeException{
     public EdgeLoopException(){
