@@ -55,7 +55,7 @@ public class Graph {
             this.edges.remove(e.hashCode());
         }
 
-        String username = Cli.getUserInput();
+//        String username = Cli.getUserInput();  //why is this here?
     }
 
     public void removeEdge(Vertex one, Vertex two){

@@ -77,7 +77,7 @@ public class Vertex {
     }
 
     public String toString(){
-        return "com.piratesgame.graph.vertices.Vertex: "+this.getLabel();
+        return "Vertex: "+this.getLabel();
     }
 
 //    public int compareTo(){
