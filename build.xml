@@ -38,7 +38,7 @@
   </target>
 
   <target name="test" depends="compile">
-    <junit fork="yes" haltonfailure="true">
+    <junit fork="yes" haltonfailure="false">
       <classpath refid="classpath.test" />
       <batchtest fork="yes" todir="tres">
         <formatter type="brief" usefile="false"/>
