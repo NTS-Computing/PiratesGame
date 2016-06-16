@@ -56,16 +56,6 @@ public class Edge {
         return this.vertexTwo;
     }
 
-    public Vertex getNeighbour(Vertex v){
-        if (v == this.vertexOne){
-            return vertexTwo;
-        }
-        if (v == this.vertexTwo){
-            return vertexOne;
-        }
-        else {return null;}
-    }
-
     public String toString(){
         return "({"+getVertexOne().getLabel()+", "+getVertexTwo().getLabel()+"}, "+getWeight()+")";
     }
