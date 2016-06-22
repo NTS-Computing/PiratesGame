@@ -28,7 +28,7 @@ public class Collectible {
 
         this.limit = max;
     }
-
+    /**/
     public int quantity(){
         return Amount;
     }
