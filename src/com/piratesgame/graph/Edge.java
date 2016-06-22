@@ -68,8 +68,10 @@ public class Edge {
         if(v.equals(this.vertexOne)){
             return this.vertexTwo;
         }
-
-        return this.vertexOne;
+        else if (v.equals(this.vertexTwo)){
+            return this.vertexOne;
+        }
+        return null;
     }
 
     public boolean equals(Edge e){
