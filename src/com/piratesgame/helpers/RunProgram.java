@@ -27,5 +27,7 @@ public class RunProgram {
         g.addEdge(vEvW);
         g.addEdge(vIvS);
         g.addEdge(vWvS);
+
+        Cli.getOptionsForMovementandchoice(vE);
     }
 }

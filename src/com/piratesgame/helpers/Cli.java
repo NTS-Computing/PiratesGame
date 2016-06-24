@@ -21,8 +21,9 @@ public class Cli {
     }
     public static Vertex getOptionsForMovementandchoice(Vertex v){
         ArrayList<Edge> destination = v.getNeighbourhood();
-        int loopnumber = 0;
-        int IndexNumber = 0;
+        System.out.println(destination.size());
+        int loopnumber = 1;
+        int IndexNumber = 1;
         while (destination.size() >= loopnumber) {
             String Destin =  "";
             Edge Choice = destination.get(loopnumber);
@@ -33,6 +34,8 @@ public class Cli {
             }
             System.out.println(Destin);
             loopnumber = loopnumber + 1;
+            IndexNumber = IndexNumber + 1;
+
         }
             int choice = getUserChoiceForMovment();
             Edge des = destination.get(choice -1);
