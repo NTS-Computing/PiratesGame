@@ -4,6 +4,15 @@ public class Collectible {
 
     protected int Amount = 0;
     protected int limit = 0;
+//  Better vertion of increase / decrease
+//    public void change(int size){
+//        if(Amount + size>limit){
+//            this.Amount = this.limit;
+//            return;
+//        }
+//        this.Amount = this.Amount + size;
+//    }
+//
 
     public void increase(int size){
         if (Amount + size > limit){

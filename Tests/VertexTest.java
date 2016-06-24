@@ -2,7 +2,7 @@ import com.piratesgame.graph.*;
 import com.piratesgame.graph.exceptions.NoEdgeException;
 import com.piratesgame.graph.vertices.PortVertex;
 import com.piratesgame.graph.vertices.SeaVertex;
-import com.piratesgame.graph.vertices.Vertex;
+import com.piratesgame.graph.Vertex;
 import org.junit.Test;
 
 import java.util.ArrayList;

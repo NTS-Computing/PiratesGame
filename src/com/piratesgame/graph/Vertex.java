@@ -1,6 +1,5 @@
-package com.piratesgame.graph.vertices;
+package com.piratesgame.graph;
 
-import com.piratesgame.graph.Edge;
 import com.piratesgame.graph.exceptions.NoEdgeException;
 
 import java.util.ArrayList;

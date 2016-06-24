@@ -1,7 +1,6 @@
 package com.piratesgame.graph;
 
 import com.piratesgame.graph.exceptions.EdgeLoopException;
-import com.piratesgame.graph.vertices.Vertex;
 
 public class Edge {
 
@@ -74,13 +73,7 @@ public class Edge {
         return (getVertexOne().getLabel()+getVertexTwo().getLabel()).hashCode();
     }
 
-    public Vertex getNeighbour(Vertex v){
-        if(v.equals(this.vertexOne)){
-            return this.vertexTwo;
-        }
 
-        return this.vertexOne;
-    }
 
     public boolean equals(Edge e){
         if(e.hashCode() == this.hashCode()){
