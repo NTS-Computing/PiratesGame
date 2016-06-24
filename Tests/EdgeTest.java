@@ -1,7 +1,7 @@
 import com.piratesgame.graph.Edge;
 import com.piratesgame.graph.exceptions.EdgeLoopException;
 import com.piratesgame.graph.Graph;
-import com.piratesgame.graph.Vertex;
+import com.piratesgame.graph.vertices.Vertex;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

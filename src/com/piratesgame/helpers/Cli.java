@@ -19,7 +19,7 @@ public class Cli {
         return Integer.parseInt(Scan.nextLine());
 
     }
-    public static Edge getOptionsForMovementandchoice(Vertex v){
+    public static Vertex getOptionsForMovementandchoice(Vertex v){
         ArrayList<Edge> destination = v.getNeighbourhood();
         int loopnumber = 0;
         int IndexNumber = 0;
@@ -30,7 +30,19 @@ public class Cli {
         }
             int choice = getUserChoiceForMovment();
             Edge des = destination.get(choice -1);
-            return des;
+            Vertex endVertex = movealong(des,v);
+        return endVertex;
+
+    }
+    public static Vertex movealong(Edge TravelAlong,Vertex Start){
+        int travelwieght = TravelAlong.getWeight();
+        if (Start == TravelAlong.getVertexOne()){
+            return TravelAlong.getVertexTwo();
+        }else {
+            return TravelAlong.getVertexTwo();
+        }
+
+
 
     }
 }
