@@ -1,7 +1,7 @@
 package com.piratesgame.helpers;
 
 import com.piratesgame.graph.Edge;
-import com.piratesgame.graph.Vertex;
+import com.piratesgame.graph.vertices.Vertex;
 
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.util.ArrayList;

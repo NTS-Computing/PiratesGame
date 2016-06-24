@@ -62,8 +62,7 @@ public class EdgeTest {
 
         Edge e = new Edge(v1, v2);
 
-        Vertex nullOpposite = e.getNeighbour(v3);
-        assertNull(nullOpposite);
+        assertNull(e.getNeighbour(v3));
     }
 
     @Test

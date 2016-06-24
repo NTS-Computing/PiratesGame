@@ -1,5 +1,6 @@
 import com.piratesgame.graph.*;
 import com.piratesgame.graph.exceptions.NoEdgeException;
+import com.piratesgame.graph.vertices.IslandVertex;
 import com.piratesgame.graph.vertices.PortVertex;
 import com.piratesgame.graph.vertices.SeaVertex;
 import com.piratesgame.graph.Vertex;
@@ -182,41 +183,45 @@ public class VertexTest {
     }
 
     @Test
-    public void create_a_port_vertex_with_string(){
-        PortVertex vP = new PortVertex("Priest Cove");
-
-        assertEquals("Priest Cove", vP.getLabel());
-    }
-
-    @Test
-    public void create_a_sea_vertex_with_string(){
-        SeaVertex vS = new SeaVertex("Atlantic sea");
-
-        assertEquals("Atlantic sea",vS.getLabel());
-    }
-
-    @Test
     public void we_can_create_a_graph_of_sea_and_port_vertices_with_edges(){
         SeaVertex seaAB = new SeaVertex("sea AB");
         SeaVertex seaAC = new SeaVertex("sea AC");
         SeaVertex seaBC = new SeaVertex("sea BC");
-        PortVertex A = new PortVertex("Port A");
-        PortVertex B = new PortVertex("Port B");
-        PortVertex C = new PortVertex("Port C");
+        PortVertex a = new PortVertex("Port A");
+        PortVertex b = new PortVertex("Port B");
+        PortVertex c = new PortVertex("Port C");
 
-        Edge portASeaAB = new Edge(A,seaAB);
-        Edge portBSeaAB = new Edge(B,seaAB);
-        Edge portASeaAC = new Edge(A,seaAC);
-        Edge portCSeaAC = new Edge(C,seaAC);
-        Edge portBSeaBC = new Edge(C,seaBC);
-        Edge portCSeaBC = new Edge(C,seaBC);
-        Edge SeaABSeaBC = new Edge(seaBC,seaAB);
-        Edge SeaABSeaAC = new Edge(seaAC,seaAB);
-        Edge SeaACSeaBC = new Edge(seaBC,seaAC);
+        Edge portASeaAB = new Edge(a,seaAB);
+        Edge portBSeaAB = new Edge(b,seaAB);
+        Edge portASeaAC = new Edge(a,seaAC);
+        Edge portCSeaAC = new Edge(c,seaAC);
+        Edge portBSeaBC = new Edge(c,seaBC);
+        Edge seaABSeaBC = new Edge(seaBC,seaAB);
+        Edge seaABSeaAC = new Edge(seaAC,seaAB);
+        Edge seaACSeaBC = new Edge(seaBC,seaAC);
 
         Graph g = new Graph();
 
-        //add all vertices and edges to graph
+        g.addVertex(seaAB);
+        g.addVertex(seaAC);
+        g.addVertex(seaBC);
+        g.addVertex(a);
+        g.addVertex(b);
+        g.addVertex(c);
+
+        g.addEdge(portASeaAB);
+        g.addEdge(portBSeaAB);
+        g.addEdge(portASeaAC);
+        g.addEdge(portCSeaAC);
+        g.addEdge(portBSeaBC);
+        g.addEdge(seaABSeaBC);
+        g.addEdge(seaABSeaAC);
+        g.addEdge(seaACSeaBC);
+
+        assertTrue(g.containsEdge(portCSeaAC));
+        assertTrue(g.containsEdge(seaABSeaBC));
+        assertTrue(g.containsVertex(seaAB));
+        assertTrue(g.containsVertex(b));
     }
 }
 
