@@ -24,7 +24,13 @@ public class Cli {
         int loopnumber = 0;
         int IndexNumber = 0;
         while (destination.size() >= loopnumber) {
-            String Destin = IndexNumber + ":" + destination.get(loopnumber);
+            String Destin =  "";
+            Edge Choice = destination.get(loopnumber);
+            if (Choice.getVertexOne() == v){
+                Destin = IndexNumber + " :" + Choice.getVertexTwo().getLabel();
+            }else if (Choice.getVertexOne() ==v){
+                Destin = IndexNumber + " :" + Choice.getVertexOne().getLabel();
+            }
             System.out.println(Destin);
             loopnumber = loopnumber + 1;
         }
