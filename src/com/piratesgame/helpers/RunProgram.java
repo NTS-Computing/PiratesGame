@@ -18,7 +18,17 @@ public class RunProgram {
         Edge vIvS = new Edge(vI, vS);
         Edge vWvS = new Edge(vW,vS);
 
+        vE.addNeighbour(vEvI);
+        vE.addNeighbour(vEvW);
+        vI.addNeighbour(vEvI);
+        vI.addNeighbour(vIvS);
+        vW.addNeighbour(vEvW);
+        vW.addNeighbour(vWvS);
+        vS.addNeighbour(vIvS);
+        vS.addNeighbour(vWvS);
+
         Graph g = new Graph();
+
         g.addVertex(vE);
         g.addVertex(vI);
         g.addVertex(vW);

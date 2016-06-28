@@ -22,11 +22,16 @@ public class Cli {
     public static Vertex getOptionsForMovementandchoice(Vertex v){
         ArrayList<Edge> destination = v.getNeighbourhood();
         System.out.println(destination.size());
+        /*loop number should be 0 as
+        when it is set to one
+        it causes a outofbounds exeption,
+        arrylists start from 0
+         */
         int loopnumber = 1;
         int IndexNumber = 1;
         while (destination.size() >= loopnumber) {
             String Destin =  "";
-            Edge Choice = destination.get(loopnumber);
+            Edge Choice = destination.get(loopnumber - 1);
             if (Choice.getVertexOne() == v){
                 Destin = IndexNumber + " :" + Choice.getVertexTwo().getLabel();
             }else if (Choice.getVertexOne() ==v){
